@@ -1,7 +1,7 @@
 export default function SideMenu() {
-    return <main className="h-full">
+    return <main className="h-full p-10">
         <div>
-            SideMenu
+            Contenuto
         </div>
     </main>
 }

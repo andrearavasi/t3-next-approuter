@@ -6,7 +6,7 @@ export default function RootLayout({
 }) {
     return (
         <div className="flex flex-row gap-4 h-full">
-            <div className="bg-slate-300 h-full">
+            <div className="bg-slate-300 h-full p-5">
                 <div>Profilo</div>
                 <div>Impostazioni</div>
             </div>

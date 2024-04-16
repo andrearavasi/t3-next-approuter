@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-screen">
           <div className="bg-slate-400 p-2">
             T3 App Router example
           </div>
