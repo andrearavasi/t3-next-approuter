@@ -20,7 +20,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>{children}</body>
+      <body className={`font-sans ${inter.variable}`}>
+        <div className="flex flex-col h-full">
+          <div className="bg-slate-400 p-2">
+            T3 App Router example
+          </div>
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
