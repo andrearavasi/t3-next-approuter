@@ -22,8 +22,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
         <div className="flex flex-col h-screen">
-          <div className="bg-slate-400 p-2">
-            T3 App Router example
+          <div className="bg-slate-400 p-2 flex flex-row justify-between">
+            <div>
+              T3 App Router example
+            </div>
+            <div>
+              {Date.now()}
+            </div>
           </div>
           {children}
         </div>
