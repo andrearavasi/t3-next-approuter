@@ -4,6 +4,7 @@
 import { sql } from "drizzle-orm";
 import {
   index,
+  integer,
   pgTableCreator,
   serial,
   timestamp,
@@ -23,12 +24,21 @@ export const posts = createTable(
   {
     id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }),
-    createdAt: timestamp("created_at")
-      .default(sql`CURRENT_TIMESTAMP`)
-      .notNull(),
+    createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
     updatedAt: timestamp("updatedAt"),
+    authorId: integer("id_author").notNull().references(() => users.id)
   },
   (example) => ({
     nameIndex: index("name_idx").on(example.name),
   })
+);
+
+export const users = createTable(
+  "user",
+  {
+    id: serial("id").primaryKey(),
+    name: varchar("name", { length: 256 }),
+    createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
+    updatedAt: timestamp("updatedAt"),
+  }
 );
