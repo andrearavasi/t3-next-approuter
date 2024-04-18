@@ -1,6 +1,8 @@
 import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
+import Image from "next/image";
+import { Footer } from "~/components/ui/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,14 +22,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>
-        <div className="flex flex-col h-screen">
-          <div className="bg-slate-400 p-2">
-            T3 App Router example
+      <body className={`font-sans ${inter.variable} dark`}>
+        <div className="flex flex-col h-screen w-screen items-center justify-center bg-gradient-to-b from-slate-300 to-slate-700">
+          <div className="flex flex-col w-9/12 h-3/4 justify-between bg-slate-200 rounded p-4">
+            <div className="w-auto h-28 relative rounded">
+              <Image src={"/logo.png"} alt="icon" fill></Image>
+            </div>
+            <div>
+              {children}
+            </div>
+            <Footer></Footer>
           </div>
-          {children}
         </div>
       </body>
-    </html>
+    </html >
   );
 }
