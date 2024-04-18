@@ -26,7 +26,8 @@ export const posts = createTable(
     name: varchar("name", { length: 256 }),
     createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
     updatedAt: timestamp("updatedAt"),
-    authorId: integer("id_author").notNull().references(() => users.id)
+    authorId: integer("id_author").notNull().references(() => users.id),
+    description: varchar("description", { length: 2048 }),
   },
   (example) => ({
     nameIndex: index("name_idx").on(example.name),
