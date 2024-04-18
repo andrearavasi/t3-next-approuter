@@ -12,6 +12,7 @@ export default async function HomePage() {
       <Button asChild variant="link" size="max">
         <Link href="/out" className="bg-slate-900 p-10">Esci</Link>
       </Button>
+
     </div>
   );
 }
