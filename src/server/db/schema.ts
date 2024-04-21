@@ -4,6 +4,7 @@
 import { sql } from "drizzle-orm";
 import {
   index,
+  integer,
   pgTableCreator,
   serial,
   timestamp,
@@ -18,17 +19,42 @@ import {
  */
 export const createTable = pgTableCreator((name) => `t3-next-approuter_${name}`);
 
+// export const posts = createTable(
+//   "post",
+//   {
+//     id: serial("id").primaryKey(),
+//     name: varchar("name", { length: 256 }),
+//     createdAt: timestamp("created_at")
+//       .default(sql`CURRENT_TIMESTAMP`)
+//       .notNull(),
+//     updatedAt: timestamp("updatedAt"),
+//   },
+//   (example) => ({
+//     nameIndex: index("name_idx").on(example.name),
+//   })
+// );
+
+export const users = createTable(
+  "user",
+  {
+    id: serial("id").primaryKey().notNull(),
+    name: varchar("name", { length: 256 }),
+    createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt", { mode: 'string' }),
+  });
+
 export const posts = createTable(
   "post",
   {
-    id: serial("id").primaryKey(),
+    id: serial("id").primaryKey().notNull(),
     name: varchar("name", { length: 256 }),
-    createdAt: timestamp("created_at")
-      .default(sql`CURRENT_TIMESTAMP`)
-      .notNull(),
-    updatedAt: timestamp("updatedAt"),
+    createdAt: timestamp("created_at", { mode: 'string' }).defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt", { mode: 'string' }),
+    idAuthor: integer("id_author").notNull().references(() => users.id),
+    description: varchar("description", { length: 2048 }),
   },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
-  })
-);
+  (table) => {
+    return {
+      nameIdx: index("name_idx").on(table.name),
+    }
+  });

@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${inter.variable} dark`}>
         <div className="flex flex-col h-screen w-screen items-center justify-center bg-gradient-to-b from-slate-300 to-slate-700">
-          <div className="flex flex-col w-9/12 h-3/4 justify-between bg-slate-200 rounded p-4">
+          <div className="flex flex-col w-11/12 lg:w-5/12 sm:w-9/12 h-3/4 justify-between bg-slate-200 rounded p-4">
             <div className="w-auto h-28 relative rounded">
               <Image src={"/logo.png"} alt="icon" fill></Image>
             </div>

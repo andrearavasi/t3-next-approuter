@@ -1,6 +1,7 @@
 
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
+import { List } from "~/components/ui/list";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,7 @@ export default async function HomePage() {
       <Button asChild variant="link" size="max">
         <Link href="/out" className="bg-slate-900 p-10">Esci</Link>
       </Button>
-
+      <List></List>
     </div>
   );
 }
